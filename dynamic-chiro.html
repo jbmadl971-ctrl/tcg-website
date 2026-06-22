@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Chiropractic — Mobile Chiropractor | Dr. Jordan Grissette | North Texas</title>
+
+<meta name="description" content="Dr. Jordan Grissette brings professional chiropractic care directly to your home, office, or gym in North Texas. No waiting room. No commute. Real relief.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://dynamicchiro.us/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dynamic Chiropractic — Mobile Chiropractor, North Texas">
+<meta property="og:description" content="Your chiropractor comes to you. Dr. Jordan Grissette serves North Texas — home, office, gym, anywhere. Book your adjustment today.">
+<meta property="og:url" content="https://dynamicchiro.us/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dynamic Chiropractic — Mobile Chiropractor, North Texas">
+<meta name="twitter:description" content="Your chiropractor comes to you. No waiting room. No commute. Real relief.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "Dynamic Chiropractic",
+      "description": "Mobile chiropractic care delivered to your home, office, or gym in North Texas. Spinal adjustments, soft tissue therapy, sports care, and corporate wellness.",
+      "url": "https://dynamicchiro.us",
+      "telephone": "+19405550187",
+      "email": "jordan@dynamicchiro.us",
+      "address": { "@type": "PostalAddress", "addressLocality": "Denton", "addressRegion": "TX", "addressCountry": "US" },
+      "areaServed": { "@type": "City", "name": "Denton" },
+      "priceRange": "$$",
+      "openingHours": "Mo-Sa 07:00-19:00"
+    },
+    {
+      "@type": "Physician",
+      "name": "Dr. Jordan Grissette",
+      "jobTitle": "Doctor of Chiropractic",
+      "url": "https://dynamicchiro.us",
+      "telephone": "(940) 555-0187"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What do I need at home for a mobile chiropractic visit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Just enough floor space for a portable table. Dr. Grissette brings everything needed — table, tools, and supplies. You don't need any special equipment." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is mobile chiropractic as effective as going to an office?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — and often more so. You're relaxed in your own environment, there's no rushed waiting room energy, and you get Dr. Grissette's undivided attention for the full appointment. Most patients report better outcomes because there's zero commute stress before or after the adjustment." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I book an appointment with Dynamic Chiropractic?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Call or text (940) 555-0187 to book, or use the booking link on this page. Most appointments are confirmed same-day or next-day." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── TOKENS ──────────────────────────────────────────── */
+:root {
+  --forest:    #0C3B2E;
+  --forest-mid:#155740;
+  --mint:      #3DAA77;
+  --cream:     #F7F3EA;
+  --ivory-mid: #EDE8DC;
+  --gold:      #D4961E;
+  --gold-dark: #B07A10;
+  --ink:       #1A2B22;
+  --ink-soft:  #4A6356;
+  --white:     #ffffff;
+  --serif:     'Playfair Display', Georgia, serif;
+  --sans:      'Inter', system-ui, sans-serif;
+}
+
+/* ─── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--ink); line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── LAYOUT ──────────────────────────────────────────── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+@media(max-width: 800px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ─── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(12,59,46,.97); backdrop-filter: blur(8px);
+  padding: 0 28px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
+.nav-logo .nl-name { font-family: var(--serif); font-size: 18px; color: var(--white); font-weight: 500; }
+.nav-logo .nl-tag  { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--mint); font-weight: 600; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.7); letter-spacing: .04em; transition: color .2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-cta { background: var(--gold); color: var(--ink) !important; padding: 10px 22px; font-weight: 700 !important; font-size: 13px !important; letter-spacing: .06em; text-transform: uppercase; transition: background .2s !important; }
+.nav-cta:hover { background: var(--gold-dark) !important; }
+@media(max-width: 720px) {
+  .nav-links { display: none; }
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────── */
+.btn { display: inline-block; font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 16px 36px; cursor: pointer; transition: all .2s; }
+.btn-gold { background: var(--gold); color: var(--ink); }
+.btn-gold:hover { background: var(--gold-dark); }
+.btn-outline { border: 2px solid rgba(255,255,255,.6); color: var(--white); }
+.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+.btn-green { background: var(--mint); color: var(--white); }
+.btn-green:hover { background: #329165; }
+.btn-group { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+/* ─── EYEBROW ─────────────────────────────────────────── */
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--mint); margin-bottom: 14px; }
+
+/* ─── HERO ────────────────────────────────────────────── */
+.hero {
+  background: var(--forest);
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -180px;
+  width: 640px; height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(61,170,119,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 7vw, 88px);
+  color: var(--white);
+  line-height: 1.04;
+  margin-bottom: 28px;
+  max-width: 13em;
+}
+.hero h1 em { font-style: italic; color: var(--mint); }
+.hero-sub {
+  font-size: clamp(17px, 1.8vw, 20px);
+  color: rgba(255,255,255,.72);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 44px;
+}
+.hero-note {
+  margin-top: 32px;
+  font-size: 13px;
+  color: rgba(255,255,255,.4);
+  letter-spacing: .04em;
+}
+
+/* ─── TRUST BAR ───────────────────────────────────────── */
+.trust-bar { background: var(--forest-mid); padding: 22px 0; border-top: 1px solid rgba(255,255,255,.06); }
+.trust-items { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; align-items: center; }
+.trust-item { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.75); letter-spacing: .04em; text-transform: uppercase; }
+.trust-item svg { flex: none; }
+
+/* ─── WHY MOBILE ──────────────────────────────────────── */
+.why-mobile { padding: 100px 0; background: var(--cream); }
+.why-mobile .section-head { margin-bottom: 64px; }
+.why-mobile .section-head h2 { font-family: var(--serif); font-size: clamp(30px, 4vw, 50px); color: var(--ink); margin-bottom: 16px; max-width: 16em; }
+.why-mobile .section-head p { font-size: 17px; color: var(--ink-soft); max-width: 560px; line-height: 1.75; }
+.why-card { padding: 40px; background: var(--white); border-bottom: 3px solid var(--mint); }
+.why-num { font-family: var(--serif); font-size: 52px; color: var(--mint); opacity: .28; line-height: 1; margin-bottom: 16px; font-weight: 700; }
+.why-card h3 { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-bottom: 12px; }
+.why-card p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; }
+
+/* ─── SERVICES ────────────────────────────────────────── */
+.services { padding: 100px 0; background: var(--forest); }
+.services h2 { font-family: var(--serif); font-size: clamp(30px, 4vw, 48px); color: var(--white); margin-bottom: 16px; }
+.services .s-sub { font-size: 17px; color: rgba(255,255,255,.6); max-width: 520px; line-height: 1.7; margin-bottom: 64px; }
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+@media(max-width: 800px) { .service-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width: 520px) { .service-grid { grid-template-columns: 1fr; } }
+.service-item { background: rgba(255,255,255,.05); padding: 36px 32px; border: 1px solid rgba(255,255,255,.07); transition: background .2s; }
+.service-item:hover { background: rgba(255,255,255,.09); }
+.service-icon { width: 44px; height: 44px; background: rgba(61,170,119,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.service-item h3 { font-family: var(--serif); font-size: 20px; color: var(--white); margin-bottom: 10px; }
+.service-item p { font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.7; }
+
+/* ─── HOW IT WORKS ────────────────────────────────────── */
+.how { padding: 100px 0; background: var(--ivory-mid); }
+.how h2 { font-family: var(--serif); font-size: clamp(30px, 4vw, 48px); color: var(--ink); margin-bottom: 12px; text-align: center; }
+.how .how-sub { font-size: 17px; color: var(--ink-soft); text-align: center; max-width: 480px; margin: 0 auto 64px; line-height: 1.7; }
+.how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+@media(max-width: 700px) { .how-steps { grid-template-columns: 1fr; } }
+.how-step { padding: 0 40px; position: relative; }
+.how-step:not(:last-child)::after {
+  content: '→';
+  position: absolute; right: -8px; top: 22px;
+  font-size: 24px; color: var(--mint); font-weight: 300;
+}
+@media(max-width: 700px) { .how-step:not(:last-child)::after { display: none; } }
+.step-n { font-family: var(--serif); font-size: 56px; color: var(--mint); opacity: .25; line-height: 1; margin-bottom: 16px; font-weight: 700; }
+.how-step h3 { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-bottom: 12px; }
+.how-step p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; }
+
+/* ─── ABOUT ───────────────────────────────────────────── */
+.about { padding: 100px 0; background: var(--cream); }
+.about-photo-wrap {
+  position: relative;
+  background: var(--forest);
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.about-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.about-photo-placeholder {
+  width: 100%; height: 100%; min-height: 480px;
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  color: rgba(255,255,255,.3); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+}
+.about-content { padding: 20px 0; }
+.about-content h2 { font-family: var(--serif); font-size: clamp(28px, 3.6vw, 44px); color: var(--ink); margin-bottom: 24px; line-height: 1.15; }
+.about-content p { font-size: 16px; color: var(--ink-soft); line-height: 1.85; margin-bottom: 18px; max-width: 560px; }
+.creds { margin-top: 32px; padding: 24px 28px; background: var(--ivory-mid); border-left: 3px solid var(--mint); }
+.creds-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--mint); margin-bottom: 12px; }
+.creds-list { font-size: 14px; color: var(--ink-soft); line-height: 1.9; }
+
+/* ─── TESTIMONIALS ────────────────────────────────────── */
+.testimonials { padding: 100px 0; background: var(--forest); }
+.testimonials h2 { font-family: var(--serif); font-size: clamp(28px, 3.6vw, 44px); color: var(--white); margin-bottom: 56px; text-align: center; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media(max-width: 800px) { .testi-grid { grid-template-columns: 1fr; } }
+.testi-card { background: rgba(255,255,255,.06); padding: 36px 32px; border: 1px solid rgba(255,255,255,.08); }
+.testi-stars { color: var(--gold); font-size: 15px; letter-spacing: 2px; margin-bottom: 18px; }
+.testi-quote { font-family: var(--serif); font-size: 17px; color: rgba(255,255,255,.85); line-height: 1.7; font-style: italic; margin-bottom: 24px; }
+.testi-attr { font-size: 13px; font-weight: 600; color: var(--mint); letter-spacing: .06em; text-transform: uppercase; }
+
+/* ─── PRICING ─────────────────────────────────────────── */
+.pricing { padding: 100px 0; background: var(--ivory-mid); }
+.pricing h2 { font-family: var(--serif); font-size: clamp(30px, 4vw, 48px); color: var(--ink); margin-bottom: 12px; text-align: center; }
+.pricing-sub { font-size: 17px; color: var(--ink-soft); text-align: center; max-width: 480px; margin: 0 auto 64px; line-height: 1.7; }
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media(max-width: 800px) { .price-grid { grid-template-columns: 1fr; } }
+.price-card { background: var(--white); padding: 44px 36px; border: 1px solid rgba(12,59,46,.1); position: relative; }
+.price-card.featured { border: 2px solid var(--mint); }
+.featured-tag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--mint); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 4px 14px; white-space: nowrap; }
+.price-card h3 { font-family: var(--serif); font-size: 22px; color: var(--ink); margin-bottom: 8px; }
+.price-amount { font-family: var(--serif); font-size: 42px; color: var(--forest); font-weight: 600; line-height: 1; margin: 16px 0 6px; }
+.price-amount span { font-size: 18px; vertical-align: top; margin-top: 8px; display: inline-block; }
+.price-note { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.price-features li { font-size: 14px; color: var(--ink-soft); display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+.price-features li::before { content: '✓'; color: var(--mint); font-weight: 700; flex: none; margin-top: 1px; }
+
+/* ─── SERVICE AREA ────────────────────────────────────── */
+.area { padding: 100px 0; background: var(--cream); }
+.area h2 { font-family: var(--serif); font-size: clamp(28px, 3.6vw, 44px); color: var(--ink); margin-bottom: 16px; }
+.area p { font-size: 17px; color: var(--ink-soft); max-width: 560px; line-height: 1.75; margin-bottom: 40px; }
+.area-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.area-tag { padding: 8px 18px; background: var(--white); border: 1px solid rgba(12,59,46,.15); font-size: 14px; color: var(--ink); font-weight: 500; }
+
+/* ─── FAQ ─────────────────────────────────────────────── */
+.faq { padding: 100px 0; background: var(--ivory-mid); }
+.faq h2 { font-family: var(--serif); font-size: clamp(28px, 3.6vw, 44px); color: var(--ink); margin-bottom: 48px; text-align: center; }
+.faq-list { max-width: 720px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid rgba(12,59,46,.12); }
+.faq-item:first-child { border-top: 1px solid rgba(12,59,46,.12); }
+.faq-q { width: 100%; background: none; border: none; text-align: left; padding: 22px 0; font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.faq-icon { font-size: 22px; color: var(--mint); flex: none; transition: transform .25s; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .25s; }
+.faq-a p { font-size: 15px; color: var(--ink-soft); line-height: 1.8; padding-bottom: 22px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-item.open .faq-a { max-height: 240px; }
+
+/* ─── FINAL CTA ───────────────────────────────────────── */
+.final-cta { padding: 120px 0; background: var(--forest); text-align: center; }
+.final-cta h2 { font-family: var(--serif); font-size: clamp(32px, 5vw, 62px); color: var(--white); margin-bottom: 20px; line-height: 1.1; max-width: 14em; margin-left: auto; margin-right: auto; }
+.final-cta h2 em { font-style: italic; color: var(--mint); }
+.final-cta p { font-size: 17px; color: rgba(255,255,255,.6); max-width: 460px; margin: 0 auto 48px; line-height: 1.7; }
+
+/* ─── FOOTER ──────────────────────────────────────────── */
+footer { background: #091F18; padding: 48px 0; }
+.footer-inner { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
+.footer-brand .fb-name { font-family: var(--serif); font-size: 20px; color: var(--white); margin-bottom: 4px; }
+.footer-brand .fb-tag { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--mint); }
+.footer-copy { font-size: 13px; color: rgba(255,255,255,.3); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,.45); transition: color .2s; }
+.footer-links a:hover { color: var(--white); }
+
+/* ─── UTILITIES ───────────────────────────────────────── */
+@media(max-width: 600px) {
+  .btn { padding: 14px 28px; font-size: 13px; }
+  .btn-group { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═════════════════════════════════════ -->
+<nav>
+  <div class="nav-logo">
+    <span class="nl-name">Dynamic Chiropractic</span>
+    <span class="nl-tag">Mobile · North Texas</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="tel:(940) 555-0187" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HERO ════════════════════════════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Mobile Chiropractic · North Texas</div>
+    <h1>Your chiropractor<br>comes to <em>you.</em></h1>
+    <p class="hero-sub">No waiting room. No commute. Dr. Jordan Grissette brings professional chiropractic care to your home, office, or gym — anywhere in North Texas.</p>
+    <div class="btn-group">
+      <a href="tel:(940) 555-0187" class="btn btn-gold">Book Your Adjustment</a>
+      <a href="#how" class="btn btn-outline">How it works →</a>
+    </div>
+    <p class="hero-note">Most appointments confirmed same-day or next-day · Call or text (940) 555-0187</p>
+  </div>
+</section>
+
+<!-- ═══════════ TRUST BAR ══════════════════════════════ -->
+<div class="trust-bar">
+  <div class="wrap">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Licensed Doctor of Chiropractic
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Same-day &amp; Next-day Availability
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home · Office · Gym · Anywhere
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        5-Star Rated · North Texas
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ WHY MOBILE ═════════════════════════════ -->
+<section class="why-mobile">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why mobile beats the office</div>
+      <h2>The waiting room wasn't working for you anyway.</h2>
+      <p>Traditional chiropractic offices weren't designed for people in real pain. You shouldn't have to drive 30 minutes, sit in traffic, then wait another 20 — just to get relief.</p>
+    </div>
+    <div class="grid-3">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>You're already in pain. Don't add a commute.</h3>
+        <p>The last thing a stiff back or pinched nerve needs is a 30-minute drive and a crowded parking lot. Dr. Grissette comes to you — adjusted and recovered without leaving your home.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h3>Your full appointment time — not 8 minutes.</h3>
+        <p>Office-based chiropractic runs on volume. You get rushed in and out. With mobile care, every minute of your appointment is spent on you — not the person before you or after.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h3>Better outcomes. You're relaxed at home.</h3>
+        <p>Tension and stress tighten muscles and reduce the effectiveness of adjustments. In your own environment, your body responds better — and that means faster, longer-lasting results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="eyebrow">What Dr. Grissette treats</div>
+    <h2>Full chiropractic care. Wherever you need it.</h2>
+    <p class="s-sub">From everyday back pain to sports recovery to prenatal care — Dr. Grissette brings the full scope of chiropractic practice to your location.</p>
+    <div class="service-grid">
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+        </div>
+        <h3>Spinal Adjustment</h3>
+        <p>Targeted, precise adjustments for back pain, neck pain, headaches, and spinal misalignment. The core of chiropractic care — done in your own space.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Soft Tissue Therapy</h3>
+        <p>Myofascial release, trigger point work, and muscle therapy to address the soft tissue side of pain — not just the spine.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Sports Performance</h3>
+        <p>Recovery, mobility, and performance work for athletes. Whether you're training or hurting, Dr. Grissette keeps you moving at full capacity.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Prenatal &amp; Postpartum</h3>
+        <p>Gentle, pregnancy-safe adjustments for expectant and new mothers. Reduce back pain, improve posture, and support a healthier pregnancy — at home.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>Corporate &amp; On-Site Wellness</h3>
+        <p>Bring chiropractic care to your team. Dr. Grissette offers on-site sessions for offices, gyms, and corporate wellness programs across North Texas.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DAA77" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Family &amp; Pediatric Care</h3>
+        <p>Whole-family chiropractic care from children to seniors. Everyone benefits from proper spinal alignment — and nobody has to drive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT WORKS ═══════════════════════════ -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;">Simple process</div>
+    <h2>How it works</h2>
+    <p class="how-sub">Three steps. No paperwork maze. No waiting.</p>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-n">01</div>
+        <h3>Book in 2 minutes</h3>
+        <p>Call, text, or book online. Tell Dr. Grissette what's going on and where you'd like him to come. Most appointments are confirmed same-day or next-day.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-n">02</div>
+        <h3>Dr. Grissette comes to you</h3>
+        <p>He shows up with everything — portable table, tools, supplies. Your job is to just be there. Home, office, gym, hotel — wherever works for you.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-n">03</div>
+        <h3>Get adjusted. Feel better.</h3>
+        <p>Full appointment, full attention, zero rush. You don't have to drive home after — you're already there. Most patients feel results the same day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="about-photo-wrap">
+        <!-- Replace with: <img src="jordan.jpg" alt="Dr. Jordan Grissette, DC — Dynamic Chiropractic"> -->
+        <div class="about-photo-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".4"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Dr. Grissette photo here</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="eyebrow">About Dr. Grissette</div>
+        <h2>Chiropractic care that actually fits your life.</h2>
+        <p>Dr. Jordan Grissette started Dynamic Chiropractic because he saw a gap: people in real pain who needed real help — but the system made it harder, not easier. Scheduling delays. Commutes. Assembly-line appointments where you got 10 minutes if you were lucky.</p>
+        <p>Mobile chiropractic was the answer. Every patient gets Dr. Grissette's full focus, in their own environment, on their own schedule. That's the model — and it works.</p>
+        <p>With a background in sports performance and a decade spent working alongside athletes and active families, Dr. Grissette brings both clinical precision and real-world practicality to every visit. He specializes in spinal dysfunction, sports recovery, and prenatal care — and he believes strongly that chiropractic works best when patients aren't stressed, rushed, or fighting traffic to get there.</p>
+        <div class="creds">
+          <div class="creds-label">Credentials &amp; Training</div>
+          <div class="creds-list">
+            Doctor of Chiropractic (DC) · Palmer College of Chiropractic, 2017<br>
+            Texas Licensed Chiropractor · Texas Board of Chiropractic Examiners<br>
+            Certified Chiropractic Sports Practitioner (CCSP)<br>
+            Webster Technique Certified (prenatal care)<br>
+            Serving North Texas since 2018
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIALS ═══════════════════════════ -->
+<section class="testimonials">
+  <div class="wrap">
+    <h2>What patients say.</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I threw my back out on a Tuesday and could barely walk. Dr. Grissette was at my house by noon. He worked on me for almost an hour — not the 10-minute office visit I was expecting — and I was standing up straight before he left. I haven't been back to an office-based chiropractor since."</p>
+        <div class="testi-attr">— Marcus T. · Denton, TX</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"As a runner training for my second marathon, I needed consistent chiro work without it eating my schedule. Dr. Grissette comes to my home twice a month. The fact that he comes to me means I actually keep the appointments — and the results show in my recovery times."</p>
+        <div class="testi-attr">— Sarah K. · Flower Mound, TX</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I was 7 months pregnant and in a lot of hip and lower back pain. Driving anywhere felt miserable. Dr. Grissette did prenatal adjustments at my home every two weeks and it was genuinely life-changing. He's calm, professional, and incredibly knowledgeable. Can't recommend him enough."</p>
+        <div class="testi-attr">— Ashley R. · Argyle, TX</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ══════════════════════════════════ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;">Transparent pricing</div>
+    <h2>No surprise bills.</h2>
+    <p class="pricing-sub">Mobile chiropractic is an investment in your time and your body. Here's what to expect.</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Single Visit</h3>
+        <div class="price-amount"><span>$</span>115</div>
+        <div class="price-note">Per session</div>
+        <ul class="price-features">
+          <li>Full spinal assessment</li>
+          <li>Chiropractic adjustment</li>
+          <li>Soft tissue work as needed</li>
+          <li>Dr. Grissette travels to you</li>
+          <li>~45–60 minutes</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="featured-tag">Most Popular</div>
+        <h3>Care Package · 4 visits</h3>
+        <div class="price-amount"><span>$</span>399</div>
+        <div class="price-note">Save $61 vs. single visits</div>
+        <ul class="price-features">
+          <li>Everything in Single Visit</li>
+          <li>4 sessions, use within 60 days</li>
+          <li>Priority scheduling</li>
+          <li>Progress check-in between visits</li>
+          <li>Best for new patients</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h3>Corporate / On-Site</h3>
+        <div class="price-amount" style="font-size:32px;">Custom</div>
+        <div class="price-note">Per session or monthly</div>
+        <ul class="price-features">
+          <li>Multiple employees per visit</li>
+          <li>Flexible scheduling</li>
+          <li>Wellness program integration</li>
+          <li>Volume pricing available</li>
+          <li>Contact for quote</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:36px;font-size:14px;color:var(--ink-soft);">Cash, card, and HSA/FSA accepted. <a href="tel:(940) 555-0187" style="color:var(--forest);font-weight:600;">Questions? Call Dr. Grissette directly.</a></p>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICE AREA ════════════════════════════ -->
+<section class="area" id="area">
+  <div class="wrap">
+    <div class="eyebrow">Service area</div>
+    <h2>North Texas — and growing.</h2>
+    <p>Dr. Grissette serves homes, offices, gyms, and businesses across Denton County and surrounding North Texas communities. Not sure if you're in range? Call or text — he'll tell you straight.</p>
+    <div class="area-tags">
+      <div class="area-tag">Denton</div>
+      <div class="area-tag">Argyle</div>
+      <div class="area-tag">Flower Mound</div>
+      <div class="area-tag">Northlake</div>
+      <div class="area-tag">Lewisville</div>
+      <div class="area-tag">Highland Village</div>
+      <div class="area-tag">Corinth</div>
+      <div class="area-tag">Justin</div>
+      <div class="area-tag">Sanger</div>
+      <div class="area-tag">Lake Dallas</div>
+      <div class="area-tag">Krum</div>
+      <div class="area-tag">+ surrounding areas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Common questions.</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What do I need at home for a visit?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Just enough floor space for a portable table — about the size of a twin bed. Dr. Grissette brings everything: table, tools, and supplies. You don't need any equipment or to rearrange your home.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is mobile chiropractic as effective as going to an office?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Yes — and for most patients, it's more effective. You're relaxed in your own environment, there's no commute stress before or after, and you get Dr. Grissette's undivided attention for the full session. No rush, no next patient waiting outside the door.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Does insurance cover mobile chiropractic?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Dynamic Chiropractic is a cash-pay practice. We accept all major credit cards, HSA, and FSA. Many patients find the upfront transparent pricing easier to manage than navigating insurance copays, deductibles, and referrals — and there's no pre-authorization delay before getting seen.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How quickly can I get an appointment?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Most appointments are confirmed same-day or next-day. Call or text (940) 555-0187 and Dr. Grissette will tell you the next available slot. For corporate or recurring bookings, he recommends scheduling at least a week out.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you work with athletes or sports injuries?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Yes — sports care is one of Dr. Grissette's core specialties. He's worked with runners, CrossFit athletes, cyclists, and weekend warriors across North Texas. He offers performance-focused adjustments, mobility work, and recovery sessions, and he'll come to your gym, your home, or wherever your training happens.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can you treat my whole family in one visit?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a"><p>Yes. Dr. Grissette can treat multiple family members in a single home visit. It's one of the most popular uses of mobile chiropractic — the whole family gets adjusted without anyone leaving the house. Ask about family session pricing when you book.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ════════════════════════════════ -->
+<section class="final-cta">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;display:flex;">Ready when you are</div>
+    <h2>Stop waiting.<br><em>Get adjusted.</em></h2>
+    <p>Call or text Dr. Grissette to book. Most appointments are available same-day or next-day. He brings everything — you just have to be home.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="tel:(940) 555-0187" class="btn btn-gold">Call or Text (940) 555-0187</a>
+      <a href="mailto:jordan@dynamicchiro.us" class="btn btn-outline">Email Dr. Grissette →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="fb-name">Dynamic Chiropractic</div>
+        <div class="fb-tag">Mobile · North Texas · Dr. Jordan Grissette, DC</div>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="tel:(940) 555-0187">Call/Text</a>
+      </div>
+      <div class="footer-copy">© 2026 Dynamic Chiropractic. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
