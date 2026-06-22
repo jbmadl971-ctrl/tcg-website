@@ -810,6 +810,40 @@ header {
 .who-item.who-notfit .who-label { color:rgba(0,0,0,.35); }
 
 /* ─── CONTACT PAGE ───────────────────────────────────── */
+/* ─── MEMBER GATE ────────────────────────────────────── */
+.member-gate { display:flex; align-items:center; justify-content:center; min-height:60vh; padding:80px 20px; }
+.gate-box { background:#fff; border:1px solid rgba(13,33,55,.12); padding:56px 48px; max-width:440px; width:100%; text-align:center; }
+.gate-box h2 { font-family:var(--serif); font-size:32px; color:var(--ink); margin:16px 0 12px; }
+.gate-box p { font-size:15px; color:var(--ink-soft); line-height:1.7; margin-bottom:28px; }
+.gate-input { width:100%; box-sizing:border-box; padding:14px 18px; border:1px solid rgba(13,33,55,.2); font-size:16px; margin-bottom:14px; font-family:var(--sans); outline:none; }
+.gate-input:focus { border-color:var(--navy); }
+.gate-btn { width:100%; padding:14px; background:var(--navy); color:#fff; border:none; font-family:var(--sans); font-size:14px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; transition:background .2s; }
+.gate-btn:hover { background:var(--gold); }
+.gate-error { font-size:13px; color:#c0392b; margin-top:12px; min-height:18px; }
+.gate-hint { font-size:12px; color:var(--ink-soft); margin-top:16px; }
+.gate-hint a { color:var(--navy); }
+/* Member content */
+.member-header { background:var(--navy); padding:72px 0 48px; }
+.member-header h1 { font-family:var(--serif); font-size:clamp(32px,4vw,52px); color:#fff; margin-bottom:12px; }
+.member-header p { font-size:16px; color:rgba(255,255,255,.65); max-width:520px; line-height:1.7; }
+.event-section { padding:64px 0; border-bottom:1px solid rgba(13,33,55,.08); }
+.event-section:last-child { border-bottom:none; }
+.event-section h2 { font-family:var(--serif); font-size:clamp(22px,2.6vw,32px); color:var(--navy); margin-bottom:28px; }
+.event-table { width:100%; border-collapse:collapse; font-size:14px; }
+.event-table th { font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); border-bottom:2px solid var(--gold-dim); padding:10px 14px; text-align:left; }
+.event-table td { padding:14px; border-bottom:1px solid rgba(13,33,55,.07); color:var(--ink); vertical-align:top; line-height:1.55; }
+.event-table tr:last-child td { border-bottom:none; }
+.event-table tr:hover td { background:rgba(13,33,55,.03); }
+.event-badge { display:inline-block; font-size:9px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:2px 7px; border-radius:2px; margin-left:6px; vertical-align:middle; }
+.badge-dsn { background:var(--gold); color:var(--navy); }
+.badge-verify { background:#f0e8d0; color:#7a5c00; }
+.event-card { background:#fff; border:1px solid rgba(13,33,55,.1); padding:28px 32px; margin-bottom:20px; }
+.event-card h3 { font-family:var(--serif); font-size:20px; color:var(--ink); margin-bottom:6px; }
+.event-card .ec-meta { font-size:12px; color:var(--gold); font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px; }
+.event-card p { font-size:14px; color:var(--ink-soft); line-height:1.7; margin:0; }
+.event-card .ec-note { font-size:12px; color:#c0392b; margin-top:8px; font-style:italic; }
+.member-logout { font-size:12px; color:var(--ink-soft); cursor:pointer; text-decoration:underline; }
+
 /* ─── BLOG ───────────────────────────────────────────── */
 .blog-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; }
 @media(max-width:760px){ .blog-grid { grid-template-columns:1fr; } }
@@ -986,6 +1020,7 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,.55); border-top:1p
       <li><a onclick="showPage('about')"    id="nav-about">About</a></li>
       <li><a onclick="showPage('results')"  id="nav-results">Results</a></li>
       <li><a onclick="showPage('blog')"     id="nav-blog">Blog</a></li>
+      <li><a onclick="showPage('members')"  id="nav-members">Members</a></li>
       <li><a onclick="showPage('contact')"  id="nav-contact">Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -999,6 +1034,7 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,.55); border-top:1p
     <a onclick="showPage('about');toggleMenu()">About</a>
     <a onclick="showPage('results');toggleMenu()">Results</a>
     <a onclick="showPage('blog');toggleMenu()">Blog</a>
+    <a onclick="showPage('members');toggleMenu()">Members</a>
     <a onclick="showPage('contact');toggleMenu()">Contact</a>
     <a onclick="showPage('contact');toggleMenu()">Find Your Leak →</a>
   </div>
@@ -1989,6 +2025,210 @@ footer { background:var(--navy-deep); color:rgba(255,255,255,.55); border-top:1p
 
 </main>
 
+<!-- ═══════════ MEMBERS ═══════════════════════════════ -->
+<main id="page-members" class="page">
+
+  <!-- PASSWORD GATE -->
+  <section class="surface-ivory" id="memberGateWrap">
+    <div class="member-gate">
+      <div class="gate-box">
+        <div class="eyebrow" style="justify-content:center;">DSN Members Only</div>
+        <h2>Member Resource Center</h2>
+        <p>North Texas networking events, curated for DSN members. Enter your member access code to continue.</p>
+        <input type="password" class="gate-input" id="gateInput" placeholder="Member access code" onkeydown="if(event.key==='Enter')checkGate()">
+        <button class="gate-btn" onclick="checkGate()">Enter →</button>
+        <div class="gate-error" id="gateError"></div>
+        <p class="gate-hint">Find the access code in the <a href="https://www.facebook.com/groups/dentonsquarenetworkers" target="_blank" rel="noopener">DSN Facebook group</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBER CONTENT (hidden until authenticated) -->
+  <div id="memberContent" style="display:none;">
+
+    <div class="member-header">
+      <div class="wrap">
+        <div class="eyebrow" style="color:var(--gold);">DSN Member Resource</div>
+        <h1>North Texas Networking Events</h1>
+        <p>Denton County verified events — expanded to all 13 counties as groups are confirmed. Last verified: June 2026.</p>
+        <div style="margin-top:20px;"><span class="member-logout" onclick="memberLogout()">Sign out</span></div>
+      </div>
+    </div>
+
+    <section class="surface-ivory" style="padding:72px 0;">
+      <div class="wrap">
+
+        <!-- QUICK REFERENCE -->
+        <div class="event-section">
+          <h2>Quick Reference — by day of week</h2>
+          <div style="overflow-x:auto;">
+            <table class="event-table">
+              <thead>
+                <tr>
+                  <th>Day</th>
+                  <th>Event</th>
+                  <th>Time</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Tue</strong></td>
+                  <td>Business LEAP – Denton</td>
+                  <td>9:30–10:45 AM</td>
+                  <td>North Point Cafe, Denton</td>
+                </tr>
+                <tr>
+                  <td><strong>Tue</strong></td>
+                  <td>Master Networks – Northlake</td>
+                  <td>9:30 AM</td>
+                  <td>Back Porch Drafthouse, Northlake</td>
+                </tr>
+                <tr>
+                  <td><strong>Tue</strong></td>
+                  <td>Kiwanis Club of Denton (Noon)</td>
+                  <td>12:00–1:00 PM</td>
+                  <td>Rudy's BBQ, Denton</td>
+                </tr>
+                <tr>
+                  <td><strong>Tue · 3rd monthly</strong></td>
+                  <td>PointBank Business Breakfast – Denton</td>
+                  <td>8:00–9:00 AM</td>
+                  <td>Denton South Community Room</td>
+                </tr>
+                <tr>
+                  <td><strong>Tue · 2nd monthly</strong></td>
+                  <td>Lake Cities Chamber Luncheon</td>
+                  <td>Midday</td>
+                  <td>Lake Cities Chamber, Corinth</td>
+                </tr>
+                <tr>
+                  <td><strong>Wed</strong></td>
+                  <td>Denton Square Networkers <span class="event-badge badge-dsn">Jon runs this</span></td>
+                  <td>8:00–9:00 AM</td>
+                  <td>Studio LaSalle, 101 N Elm, Denton</td>
+                </tr>
+                <tr>
+                  <td><strong>Wed</strong></td>
+                  <td>Master Networks – Denton</td>
+                  <td>10:00–11:15 AM</td>
+                  <td>Rodeo Goat, Denton</td>
+                </tr>
+                <tr>
+                  <td><strong>Wed · early</strong></td>
+                  <td>Denton Breakfast Kiwanis</td>
+                  <td>7:00–8:00 AM</td>
+                  <td>Rudy's BBQ, Denton</td>
+                </tr>
+                <tr>
+                  <td><strong>Wed · 3rd monthly</strong></td>
+                  <td>Lake Cities Networking Coffee (PointBank)</td>
+                  <td>Morning</td>
+                  <td>Lake Cities Chamber, Corinth</td>
+                </tr>
+                <tr>
+                  <td><strong>Thu</strong></td>
+                  <td>Business LEAP – Lewisville</td>
+                  <td>9:30–11:00 AM</td>
+                  <td>Korner Cafe, Lewisville</td>
+                </tr>
+                <tr>
+                  <td><strong>Thu · monthly</strong></td>
+                  <td>PointBank Business Breakfast – Lewisville</td>
+                  <td>8:00–9:00 AM</td>
+                  <td>PointBank Lewisville</td>
+                </tr>
+                <tr>
+                  <td><strong>Thu · 3rd monthly</strong></td>
+                  <td>Men's Breakfast Club (Iron Sharpens Iron) <span class="event-badge badge-verify">Unverified</span></td>
+                  <td>8:00–10:00 AM</td>
+                  <td>Crown Chase Inn, Denton</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FULL DIRECTORY -->
+        <div class="event-section">
+          <h2>Full Directory</h2>
+
+          <div class="event-card">
+            <div class="ec-meta">Wednesday · 8:00–9:00 AM · Studio LaSalle, Denton <span class="event-badge badge-dsn">Jon runs this</span></div>
+            <h3>Denton Square Networkers</h3>
+            <p>Free, come-as-you-are. Meets every Wednesday <strong>except the 1st Wednesday</strong> of the month (members attend Denton Chamber Wake Up Wednesday that day). Arrive ~7:30 AM; meeting runs informally to ~9:30.</p>
+            <p style="margin-top:10px;"><a href="https://www.facebook.com/groups/dentonsquarenetworkers" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;">Join the Facebook group →</a></p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">Wednesday · 10:00–11:15 AM · Rodeo Goat, Denton</div>
+            <h3>Master Networks — Denton Chapter</h3>
+            <p>Membership required; guests welcome. Every Wednesday. <a href="https://masternetworks.com/visit-txdenton" target="_blank" rel="noopener" style="color:var(--navy);">masternetworks.com/visit-txdenton</a></p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">Tuesday · 9:30 AM · Back Porch Drafthouse, Northlake</div>
+            <h3>Master Networks — Northlake Chapter</h3>
+            <p>Membership required; guests welcome. Every Tuesday. Serves Northlake, Justin, and Argyle. <a href="https://masternetworks.com/visit-txnorthlake" target="_blank" rel="noopener" style="color:var(--navy);">masternetworks.com/visit-txnorthlake</a></p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">Tuesday · 9:30–10:45 AM · North Point Cafe, Denton</div>
+            <h3>Business LEAP — Denton Chapter</h3>
+            <p>Every Tuesday. Verify guest policy on your first visit. <a href="https://leapnetwork.biz/denton-leap-chapter" target="_blank" rel="noopener" style="color:var(--navy);">leapnetwork.biz</a></p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">Thursday · 9:30–11:00 AM · Korner Cafe, Lewisville</div>
+            <h3>Business LEAP — Lewisville Chapter</h3>
+            <p>Every Thursday. 45-second pitch format. Verify guest policy. <a href="https://leapnetwork.biz" target="_blank" rel="noopener" style="color:var(--navy);">leapnetwork.biz</a></p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">Tuesday · 12:00–1:00 PM · Rudy's BBQ, Denton</div>
+            <h3>Kiwanis Club of Denton — Noon Meeting</h3>
+            <p>Every Tuesday. Membership required; guests welcome. <em>Separate from the Denton Breakfast Kiwanis which meets Wednesday 7–8 AM at the same location.</em> <a href="https://dentonkiwanis.org" target="_blank" rel="noopener" style="color:var(--navy);">dentonkiwanis.org</a></p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">3rd Tuesday monthly · 8:00–9:00 AM · Denton South Community Room</div>
+            <h3>PointBank Business Breakfast — Denton</h3>
+            <p>Free. RSVP via the Denton Chamber events page. <a href="https://pointbank.com/business-breakfast" target="_blank" rel="noopener" style="color:var(--navy);">pointbank.com/business-breakfast</a></p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">Thursday monthly · 8:00–9:00 AM · PointBank Lewisville</div>
+            <h3>PointBank Business Breakfast — Lewisville</h3>
+            <p>Free. Date varies monthly — check the Lewisville Chamber calendar before attending.</p>
+          </div>
+
+          <div class="event-card">
+            <div class="ec-meta">3rd Wednesday + 2nd Tuesday monthly · Lake Cities Chamber, Corinth</div>
+            <h3>Lake Cities Chamber Events</h3>
+            <p>Two recurring events: <strong>Networking Coffee</strong> (3rd Wednesday, sponsored by PointBank) and <strong>Monthly Luncheon</strong> (2nd Tuesday). Mixed guest/member access. Call ahead: (940) 497-3097. <a href="https://lakecitieschamber.com/events" target="_blank" rel="noopener" style="color:var(--navy);">lakecitieschamber.com/events</a></p>
+          </div>
+
+          <div class="event-card" style="border-color:#e8d0b0;">
+            <div class="ec-meta">3rd Thursday monthly · Crown Chase Inn, Denton</div>
+            <h3>Men's Breakfast Club — Iron Sharpens Iron <span class="event-badge badge-verify">Unverified</span></h3>
+            <p>Faith-linked, men-only. Could not confirm this is currently running as a recurring event. Confirm directly before attending.</p>
+          </div>
+        </div>
+
+        <!-- COMING SOON -->
+        <div class="event-section" style="border-bottom:none;">
+          <h2>More counties coming</h2>
+          <p style="font-size:15px;color:var(--ink-soft);max-width:600px;line-height:1.75;">This directory currently covers <strong>Denton County</strong>. Collin, Tarrant, Dallas, Wise, Parker, Rockwall, Kaufman, Ellis, Johnson, Hunt, Hood, and Somervell County events are being verified and will be added as they're confirmed.</p>
+          <p style="font-size:14px;color:var(--ink-soft);margin-top:16px;">Know a group that should be listed? <a onclick="showPage('contact')" style="color:var(--navy);cursor:pointer;font-weight:600;">Tell Jon →</a></p>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /memberContent -->
+
+</main>
+
 <!-- ═══════════ CONTACT ════════════════════════════════ -->
 <main id="page-contact" class="page">
 
@@ -2167,6 +2407,7 @@ const PAGE_TITLES = {
   about:    'About Jon Madl — Founder, The Connectors Group | Argyle TX',
   results:  'Results — Client Outcomes | The Connectors Group',
   blog:     'Blog — Operational Insight from the Field | The Connectors Group',
+  members:  'DSN Member Resources — North Texas Networking Events | The Connectors Group',
   contact:  'Contact — Book a Diagnostic | The Connectors Group'
 };
 
@@ -2205,6 +2446,58 @@ if (localStorage.getItem('tcg_cookies_ok')) {
 document.querySelector('#cookie-banner button').addEventListener('click', function() {
   localStorage.setItem('tcg_cookies_ok', '1');
 });
+
+// ── Member Gate ───────────────────────────────────────
+var MEMBER_PASS = 'DSN2026'; // Jon: update this code, then share in the FB group
+
+function checkGate() {
+  var input = document.getElementById('gateInput').value.trim();
+  if (input === MEMBER_PASS) {
+    localStorage.setItem('dsn_member_auth', '1');
+    unlockMemberPage();
+  } else {
+    document.getElementById('gateError').textContent = 'Incorrect code. Find it in the DSN Facebook group.';
+  }
+}
+
+function unlockMemberPage() {
+  var gate = document.getElementById('memberGateWrap');
+  var content = document.getElementById('memberContent');
+  if (gate) gate.style.display = 'none';
+  if (content) content.style.display = 'block';
+}
+
+function memberLogout() {
+  localStorage.removeItem('dsn_member_auth');
+  var gate = document.getElementById('memberGateWrap');
+  var content = document.getElementById('memberContent');
+  if (gate) { gate.style.display = ''; }
+  if (content) content.style.display = 'none';
+  document.getElementById('gateInput').value = '';
+  document.getElementById('gateError').textContent = '';
+}
+
+// Auto-unlock if previously authenticated
+(function(){
+  if (localStorage.getItem('dsn_member_auth') === '1') {
+    // Wait for DOM then unlock if on members page
+    document.addEventListener('DOMContentLoaded', function() {
+      if (document.getElementById('page-members') &&
+          document.getElementById('page-members').classList.contains('active')) {
+        unlockMemberPage();
+      }
+    });
+  }
+})();
+
+// Patch showPage to auto-unlock members if authenticated
+var _origShowPage = showPage;
+showPage = function(id) {
+  _origShowPage(id);
+  if (id === 'members' && localStorage.getItem('dsn_member_auth') === '1') {
+    unlockMemberPage();
+  }
+};
 
 // ── DSN Carousel ──────────────────────────────────────
 (function(){
